@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Github Prototype</title>
+
+<script type = 'template/html' id = 'imageTmpl'>
+
+
+    <%_.each(githubData, function(element,index,list ){%>
+          <img style = "width:200px;"  src = "<%= element.avatar_url%>">
+
+    <%});%>
+
+
+</script>
+
+<script type = 'template/html' id = 'namesTmpl'>
+
+
+    <%_.each(githubData, function(element,index,list ){%>
+
+          <img style = "width:200px;"  src = "<%= element.avatar_url%>">
+          <p class = "userName"><%=element.login%></p>
+          <p class = "created">Date created: <%=element.created_at%></p>
+          <p class = "followers">Followers: <%=element.followers%></p>
+          <p class = "starred">Starred: <%=element.public_gists%></p>
+          <p class = "following">Following: <%=element.following%></p>
+          <p class = "organizations">Organizations: </p><img style "width:100px;" src = "<%=element.organizations_url%>">
+
+
+    <%});%>
+
+      <% _.each(repos, function(element,index,list ){%>
+            <p>My repos should be here: </p><a href="<%= element.repos_url %>"><%=element.repos_url%></a>
+
+      <%});%>
+
+
+
+  </script>
+
+
+
+</head>
+<body>
+
+
+
+
+  <div class="pictures" >
+
+  </div>
+
+  <div class="text">
+
+  </div>
+
+  <script src = "node_modules/underscore/underscore.js"></script>
+  <script src = "node_modules/jquery/dist/jquery.js"></script>
+  <script src = "data.js"></script>
+  <script src = "main.js"></script>
+</body>
+</html>
