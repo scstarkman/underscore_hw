@@ -8,8 +8,9 @@ $(document).ready(function(){
       },
         ///for div that displays text....
         initStyling:function(){
-          homePage.renderText($(".text"));
-
+          homePage.renderUser($(".userDiv"));
+          homePage.renderRepos($(".reposDiv"));
+          homePage.renderTest($(".test"));
         },
 
         //for button click  event...
@@ -29,24 +30,28 @@ $(document).ready(function(){
         },
 
         //render text function...using the render function
-        renderText:function($target){
+        renderUser:function($target){
             homePage.render($("#namesTmpl").html(),githubData,$target);
         },
-        //my function
-        homePage.render($())
 
+        renderRepos:function($target){
+          homePage.render($("#repos").html(),repos,$target);
+        },
 
-        //render pictures function....
-        renderPictures: function($target){
-            homePage.render($("#imgTmpl").html(),githubData,$target);
-        }
+        renderTest:function($target){
+          homePage.render($("#test").html(),repos,$target);
+
+        },
+        // //render pictures function....
+        // renderPictures: function($target){
+        //     homePage.render($("#imgTmpl").html(),githubData,$target);
+        // }
 
 
 }; //end var homePage
 
 
 homePage.init();
-
 
 
 

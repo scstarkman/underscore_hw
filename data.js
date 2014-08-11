@@ -22,7 +22,8 @@ var githubData = [{
           "following": 10,
           "created_at": "2014-05-15T16:41:47Z",
           "updated_at": "2014-08-07T12:51:44Z"
-}]
+}];
+
  var repos = [
   {
     "id": 22681578,
@@ -884,7 +885,7 @@ var githubData = [{
     "watchers": 0,
     "default_branch": "master"
   }
-]
+];
 
  var events = [
   {

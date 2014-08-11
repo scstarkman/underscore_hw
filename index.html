@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>My Github Prototype</title>
+  <link rel="stylesheet" href="styles.css">
 
-<script type = 'template/html' id = 'imageTmpl'>
+<!-- <script type = 'template/html' id = 'imageTmpl'>
 
 
     <%_.each(githubData, function(element,index,list ){%>
@@ -13,34 +14,49 @@
     <%});%>
 
 
-</script>
+</script> -->
 
 <script type = 'template/html' id = 'namesTmpl'>
 
 
-    <%_.each(githubData, function(element,index,list ){%>
+    <% _.each(githubData, function(element,index,list ){ %>
 
-          <img style = "width:200px;"  src = "<%= element.avatar_url%>">
-          <p class = "userName"><%=element.login%></p>
-          <p class = "created">Date created: <%=element.created_at%></p>
-          <p class = "followers">Followers: <%=element.followers%></p>
-          <p class = "starred">Starred: <%=element.public_gists%></p>
-          <p class = "following">Following: <%=element.following%></p>
-          <p class = "organizations">Organizations: </p><img style "width:100px;" src = "<%=element.organizations_url%>">
+          <img style ="width:230px;"  src ="<%= element.avatar_url%>">
+          <p class ="userName"><%=element.login%></p>
+          <hr>
+          <p class ="date">Joined on:  <%=element.created_at%></p>
+          <hr>
+          <span class ="numbers"><%=element.followers%></span>
+          <span class ="numbers"><%=element.public_gists%></span>
+          <span class ="numbers"><%=element.following%></span><br>
+          <span class = "text">Followers</span>  <span class = "text">Starred</span>  <span class = "text">Following</span>
+          <hr>
+          <p class ="orgs">Organizations: </p><img style "width:100px;" src ="<%=element.organizations_url %>">
+          <% }); %>
+</script>
 
-
-    <%});%>
+<script type="template/html" id="repos">
 
       <% _.each(repos, function(element,index,list ){%>
-            <p>My repos should be here: </p><a href="<%= element.repos_url %>"><%=element.repos_url%></a>
+
+          <hr>
+          <div class="leftRepo">
+          <span class="mega-octicon octicon-repo"></span><a href="<%= element.html_url%>"><%=element.name%></a>
+          <p class = "updated">Last updated on <%=element.updated_at%></p>
+          </div>
+
+          <div class="rightRepo">
+          <span class = "stats"><%=element.language%></span>
+          <span class = "stats"><%=element.stargazers_count%></span>
+          <span class = "stats"><%=element.forks%></span>
+          </div>
 
       <%});%>
-
-
 
   </script>
 
 
+</script>
 
 </head>
 <body>
@@ -48,13 +64,27 @@
 
 
 
-  <div class="pictures" >
+  <aside class="userDiv">
 
-  </div>
+  </aside>
 
-  <div class="text">
 
-  </div>
+  <div class="rightSection">
+    <nav>
+      <ul>
+        <li><a href="">Repositories</a></li>
+        <li><a href="">Public Activities</a></li>
+      </ul>
+    </nav>
+
+  <section class="reposDiv">
+
+  </section>
+
+  <section class = "activityDiv">
+    
+  </section>
+</div>
 
   <script src = "node_modules/underscore/underscore.js"></script>
   <script src = "node_modules/jquery/dist/jquery.js"></script>
